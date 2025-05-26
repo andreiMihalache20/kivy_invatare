@@ -16,7 +16,7 @@ jobs:
           docker run --rm \
             -v ${{ github.workspace }}:/home/user/app \
             -w /home/user/app \
-            ghcr.io/kivy/buildozer:stable \
+            ghcr.io/kivy/buildozer \
             buildozer android debug
 
       - name: Upload APK
