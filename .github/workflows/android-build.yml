@@ -1,17 +1,14 @@
 name: Build Kivy Android APK
-
 on: workflow_dispatch
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
       - name: Pull Buildozer Docker image
-        run: docker pull ghcr.io/kivy/buildozer:latest
+        run: docker pull kivy/buildozer:latest
 
       - name: Build APK
         run: |
@@ -19,7 +16,7 @@ jobs:
             --user root \
             -v ${{ github.workspace }}:/home/user/app \
             -w /home/user/app \
-            ghcr.io/kivy/buildozer:latest \
+            kivy/buildozer:latest \
             android debug
 
       - name: Upload APK
