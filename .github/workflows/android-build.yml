@@ -18,10 +18,10 @@ jobs:
         run: |
           docker run --rm \
             --user root \
-            -v ${{ github.workspace }}:/home/user/hostcwd \
-            --entrypoint /bin/bash \
+            -v ${{ github.workspace }}:/home/user/app \
             ghcr.io/kivy/buildozer \
-            -c "cd /home/user/hostcwd && buildozer android debug"
+            buildozer android debug
+
 
 
 
