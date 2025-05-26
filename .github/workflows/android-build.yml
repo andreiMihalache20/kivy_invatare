@@ -7,9 +7,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-
-      - name: Pull Buildozer Docker image
-        run: docker pull docker.io/kivy/buildozer:latest
+      - name: Pull Buildozer image
+        run: docker pull ghcr.io/kivy/buildozer:stable
 
       - name: Build APK
         run: |
@@ -17,7 +16,7 @@ jobs:
             --user root \
             -v ${{ github.workspace }}:/home/user/app \
             -w /home/user/app \
-            docker.io/kivy/buildozer:latest \
+            ghcr.io/kivy/buildozer:stable \
             android debug
 
       - name: Upload APK
